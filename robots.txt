@@ -1,1 +1,1 @@
-Sitemap: https://mrenrique.github.io/enriquemosqueira/sitemap.xml
+Sitemap: https://mrenrique.github.io/portfolio/sitemap.xml
