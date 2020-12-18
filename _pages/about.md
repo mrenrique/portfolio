@@ -4,8 +4,5 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+Hello World (👋🌎)
+Welcome to my thoughts and projects on data science I've been documenting through blogging ✍️. My learning path is mainly base on 📚 books and MOOC's 👨‍💻 from Coursera, Edx and related resources i've collected myself. Let's learn together. 💪💯
