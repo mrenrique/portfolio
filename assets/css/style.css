@@ -431,7 +431,7 @@ body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,
 
 .home { font-size: 22px; color: #fdfdfd; background-color: #182a41; }
 
-.main-area { height: 85vh; display: flex; align-items: center; justify-content: center; padding: 15%; flex-direction: column-reverse; }
+.main-area { height: 75vh; display: flex; align-items: center; justify-content: center; padding: 15%; flex-direction: column-reverse; }
 
 .description { width: auto; }
 
@@ -453,9 +453,11 @@ body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,
 
 @media screen and (min-width: 800px) { .main-area { flex-direction: row; } .description { width: 75%; } .photo { margin-left: 5%; margin-bottom: 0%; max-width: 350px; } }
 
-.post-list { margin: 0; }
+.post-list { margin: 0; padding: 3% 0; }
 
-.post-list > li { background-color: white; margin: 2%; padding: 5%; }
+.post-list > li { background-color: #fdfdfd; margin: 2%; padding: 5%; }
+
+.post-link { font-size: 1.7rem; }
 
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
