@@ -427,15 +427,21 @@ pre code { font-size: 15px !important; }
 
 body { font-size: 16px !important; }
 
+h1, h2, h3, h4, h5, h6 { background-color: #182a41; }
+
+.site-header { line-height: 60px; border: 0; top: 0; position: sticky; background: #fdfdfd; -webkit-box-shadow: 0 8px 6px -6px black; -moz-box-shadow: 0 8px 6px -6px black; box-shadow: 0 8px 15px -10px #182a41; }
+
 .site-title { font-weight: 650; color: #182a41; }
 
-.page-content { background-color: #182a41; padding: 0; }
+.page-content { padding: 0; display: flex; justify-content: center; align-items: center; }
 
-.home { font-size: 22px; color: #fdfdfd; background-color: #182a41; }
+.home { font-size: 22px; color: #182a41; }
 
 .main-area { height: 75vh; display: flex; align-items: center; justify-content: center; padding: 15%; flex-direction: column-reverse; }
 
 .description { width: auto; }
+
+.description a { font-weight: bold; }
 
 .description a:nth-child(2) { color: #2867B2; }
 
@@ -455,9 +461,7 @@ body { font-size: 16px !important; }
 
 @media screen and (min-width: 800px) { .main-area { flex-direction: row; padding: 10%; } .description { width: 75%; } .photo { margin-left: 5%; margin-bottom: 0%; max-width: 350px; } }
 
-.post-list { margin: 0; padding: 3% 0; }
-
-.post-list > li { background-color: #fdfdfd; margin: 2%; padding: 5%; }
+.post-list { line-height: 2; }
 
 .post-link { font-size: 1.7rem; font-weight: 650; color: #182a41; }
 
