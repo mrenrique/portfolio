@@ -38,7 +38,7 @@ body {
 
 .main-area{
 	// border: 1px solid red;
-	height: 85vh;
+	height: 75vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -121,12 +121,17 @@ body {
 
 .post-list{
 	margin: 0;
+	padding: 3% 0;
 }
 
 .post-list > li{
-	background-color: white;
+	background-color: $font-color;
 	margin: 2%;
 	padding: 5%;
+}
+
+.post-link {
+    font-size: 1.7rem;
 }
 
 
