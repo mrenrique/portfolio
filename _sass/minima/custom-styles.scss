@@ -23,7 +23,7 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6{
-	background-color: $background-color;
+	color: $background-color;
 }
 
 .site-header{
@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6{
 
 .photo img{
 	border-radius: 100%;
-	@include border-gradient($secundary-color, $main-color);
+	@include border-gradient($background-color, $main-color);
 }
 
 @keyframes rotateThis {
