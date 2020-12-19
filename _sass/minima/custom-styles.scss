@@ -18,8 +18,23 @@ $font-color: #fdfdfd;
 $secundary-color: #1DF2D2;
 $background-color: #182a41;
 
-body {
+body{
     font-size: 16px !important;
+}
+
+h1, h2, h3, h4, h5, h6{
+	background-color: $background-color;
+}
+
+.site-header{
+	line-height: 60px;
+	border: 0;
+	top: 0;
+	position: sticky;
+	background: $font-color;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 8px 15px -10px #182a41;
 }
 
 .site-title{
@@ -28,14 +43,16 @@ body {
 }
 
 .page-content{
-	background-color: $background-color;
+// 	background-color: $background-color;
 	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .home{
 	font-size: 22px;
-	color: $font-color;
-	background-color: $background-color;
+	color: $background-color;
 }
 
 .main-area{
@@ -50,6 +67,10 @@ body {
 
 .description{
 	width: auto;
+}
+
+.description a {
+	font-weight: bold;
 }
 
 .description a:nth-child(2){
@@ -123,15 +144,16 @@ body {
 }
 
 .post-list{
-	margin: 0;
-	padding: 3% 0;
+// 	margin: 0;
+// 	padding: 3% 0;
+	line-height: 2;
 }
 
-.post-list > li{
-	background-color: $font-color;
-	margin: 2%;
-	padding: 5%;
-}
+// .post-list > li{
+// 	background-color: $font-color;
+// 	margin: 2%;
+// 	padding: 5%;
+// }
 
 .post-link {
 	font-size: 1.7rem;
