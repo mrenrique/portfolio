@@ -7,5 +7,124 @@
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$main-color: #f89406;
+$secundary-color: #1DF2D2;
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    line-height: 1.5;
+    color: #fdfdfd;
+    background-color: #182a41;
+}
+
+.home{
+	font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI",
+	"Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Roboto, Helvetica,
+	Arial, sans-serif;
+font-feature-settings: "kern" 1;
+font-kerning: normal;
+overflow-wrap: break-word;
+font-size: 22px;
+line-height: 1.5;
+color: #fdfdfd;
+-webkit-font-smoothing: antialiased !important;
+text-rendering: optimizeLegibility !important;
+font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue",
+	"Helvetica", "Tahoma", "Arial", sans-serif !important;
+box-sizing: border-box;
+}
+
+.main-area{
+	// border: 1px solid red;
+	height: 85vh;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	padding: 15%;
+	flex-direction: column-reverse;
+}
+
+.description{
+	width: auto;
+}
+
+.description a:nth-child(2){
+	color: #2867B2;
+}
+
+.description a:nth-child(3){
+	color: #EA4335;
+}
+
+.name{
+	color: $main-color;
+	font-weight:800;
+	font-size: 28px;
+}
+
+.photo{
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	width: 50%;
+	margin-bottom: 3%;
+}
+
+/* /// border-gradient mixin: /// */
+
+@mixin border-gradient($from, $to, $weight: 0) {
+  $mix-main: mix($from, $to);
+  $mix-sub-from: mix($mix-main, $from);
+  $mix-sub-to: mix($mix-main, $to);
+  
+  box-shadow: 0 5px 0 $weight rgba($mix-sub-to, .25),
+              0 -5px 0 $weight rgba($mix-sub-from, .25),
+              5px 0 0 $weight rgba($mix-sub-to, .25),
+              -5px 0 0 $weight  rgba($mix-sub-from, .25),
+              5px -5px 0 $weight rgba($mix-main, .5),
+              -5px 5px 0 $weight rgba($mix-main, .5),
+              5px 5px 0 $weight rgba($to, .75),
+              -5px -5px 0 $weight rgba($from, .75);
+}
+
+
+.photo img{
+	border-radius: 100%;
+	@include border-gradient($secundary-color, $main-color);
+}
+
+@keyframes rotateThis {
+  0%, 20%, 40%, 60%, 80%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+}
+
+.photo img:hover{
+	animation: rotateThis 1s linear infinite;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+	.main-area{
+		flex-direction: row;
+	}
+	.description{
+		width: 75%;
+	}
+	.photo{
+		margin-left: 5%;
+		margin-bottom: 0%;
+		max-width: 350px;
+	}
+}
+
+
+
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
