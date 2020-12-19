@@ -14,31 +14,33 @@
 }
 
 $main-color: #f89406;
+$font-color: #fdfdfd;
 $secundary-color: #1DF2D2;
+$background-color: #182a41;
 
 body {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
     font-size: 14px;
     line-height: 1.5;
     color: #fdfdfd;
-    background-color: #182a41;
 }
 
 .home{
 	font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI",
 	"Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Roboto, Helvetica,
 	Arial, sans-serif;
-font-feature-settings: "kern" 1;
-font-kerning: normal;
-overflow-wrap: break-word;
-font-size: 22px;
-line-height: 1.5;
-color: #fdfdfd;
--webkit-font-smoothing: antialiased !important;
-text-rendering: optimizeLegibility !important;
-font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue",
-	"Helvetica", "Tahoma", "Arial", sans-serif !important;
-box-sizing: border-box;
+	font-feature-settings: "kern" 1;
+	font-kerning: normal;
+	overflow-wrap: break-word;
+	font-size: 22px;
+	line-height: 1.5;
+	color: $font-color;
+	-webkit-font-smoothing: antialiased !important;
+	text-rendering: optimizeLegibility !important;
+	font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue",
+		"Helvetica", "Tahoma", "Arial", sans-serif !important;
+	box-sizing: border-box;
+	background-color: $background-color;
 }
 
 .main-area{
@@ -46,7 +48,7 @@ box-sizing: border-box;
 	height: 85vh;
 	display: flex;
 	align-items: center;
-  justify-content: center;
+	justify-content: center;
 	padding: 15%;
 	flex-direction: column-reverse;
 }
@@ -72,7 +74,7 @@ box-sizing: border-box;
 .photo{
 	display: flex;
 	align-items: center;
-  justify-content: center;
+	justify-content: center;
 	width: 50%;
 	margin-bottom: 3%;
 }
@@ -101,8 +103,8 @@ box-sizing: border-box;
 }
 
 @keyframes rotateThis {
-  0%, 20%, 40%, 60%, 80%, 100% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
+	0%, 20%, 40%, 60%, 80%, 100% {transform: translateY(0);}
+	50% {transform: translateY(-10px);}
 }
 
 .photo img:hover{
