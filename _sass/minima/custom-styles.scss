@@ -19,10 +19,12 @@ $secundary-color: #1DF2D2;
 $background-color: #182a41;
 
 body {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    font-size: 14px;
-    line-height: 1.5;
-    color: #fdfdfd;
+    font-size: 16px;
+}
+
+.site-title{
+	font-weight: 650;
+	color: $background-color;
 }
 
 .page-content{
@@ -61,7 +63,7 @@ body {
 .name{
 	color: $main-color;
 	font-weight:800;
-	font-size: 28px;
+	font-size: 32px;
 }
 
 .photo{
@@ -108,6 +110,7 @@ body {
 @media screen and (min-width: 800px) {
 	.main-area{
 		flex-direction: row;
+		padding: 10%;
 	}
 	.description{
 		width: 75%;
@@ -131,7 +134,9 @@ body {
 }
 
 .post-link {
-    font-size: 1.7rem;
+	font-size: 1.7rem;
+	font-weight: 650;
+	color: $background-color;
 }
 
 
