@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Data Preprocessing Videos Details of a Youtube Channel Using Pandas and Numpy | Data Science Portfolio</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Data Preprocessing Videos Details of a Youtube Channel Using Pandas and Numpy" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://mrenrique.github.io/portfolio/data%20preprocessing/python/data%20science/pandas/numpy/2021/01/10/data-preprocessing-with-pandas-numpy.html" />
+<meta property="og:url" content="https://mrenrique.github.io/portfolio/data%20preprocessing/python/data%20science/pandas/numpy/2021/01/10/data-preprocessing-with-pandas-numpy.html" />
+<meta property="og:site_name" content="Data Science Portfolio" />
+<meta property="og:image" content="https://mrenrique.github.io/portfolio/images/data-preprocessing-02-project.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-10T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://mrenrique.github.io/portfolio/data%20preprocessing/python/data%20science/pandas/numpy/2021/01/10/data-preprocessing-with-pandas-numpy.html","@type":"BlogPosting","headline":"Data Preprocessing Videos Details of a Youtube Channel Using Pandas and Numpy","dateModified":"2021-01-10T00:00:00-06:00","datePublished":"2021-01-10T00:00:00-06:00","image":"https://mrenrique.github.io/portfolio/images/data-preprocessing-02-project.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrenrique.github.io/portfolio/data%20preprocessing/python/data%20science/pandas/numpy/2021/01/10/data-preprocessing-with-pandas-numpy.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/portfolio/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://mrenrique.github.io/portfolio/feed.xml" title="Data Science Portfolio" /><link rel="shortcut icon" type="image/x-icon" href="/portfolio/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/portfolio/">Data Science Portfolio</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/portfolio/about/">About Me</a><a class="page-link" href="/portfolio/search/">Search</a><a class="page-link" href="/portfolio/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Data Preprocessing Videos Details of a Youtube Channel Using Pandas and Numpy</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-10T00:00:00-06:00" itemprop="datePublished">
+        Jan 10, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      12 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/portfolio/categories/#Data Preprocessing">Data Preprocessing</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/portfolio/categories/#Python">Python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/portfolio/categories/#Data Science">Data Science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/portfolio/categories/#Pandas">Pandas</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/portfolio/categories/#Numpy">Numpy</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/mrenrique/portfolio/tree/master/_notebooks/2021-01-10-data-preprocessing-with-pandas-numpy.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/portfolio/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/mrenrique/portfolio/master?filepath=_notebooks%2F2021-01-10-data-preprocessing-with-pandas-numpy.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/portfolio/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/mrenrique/portfolio/blob/master/_notebooks/2021-01-10-data-preprocessing-with-pandas-numpy.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/portfolio/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#TL;DR-👀">TL;DR 👀 </a></li>
+<li class="toc-entry toc-h2"><a href="#Importing-Libraries-🧰">Importing Libraries 🧰 </a></li>
+<li class="toc-entry toc-h2"><a href="#Importing-Dataset-🗃️">Importing Dataset 🗃️ </a></li>
+<li class="toc-entry toc-h2"><a href="#Learning-the-Dataset's-Properties-💡">Learning the Dataset&#39;s Properties 💡 </a></li>
+<li class="toc-entry toc-h2"><a href="#Data-Cleaning-🧼-and-Transformation-🔪">Data Cleaning 🧼 and Transformation 🔪 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Renaming-Columns-Names">Renaming Columns Names </a></li>
+<li class="toc-entry toc-h3"><a href="#Deleting-Columns-not-needed-(First-Attempt)">Deleting Columns not needed (First Attempt) </a></li>
+<li class="toc-entry toc-h3"><a href="#Modifying-values-by-Removing-(Additional-meaningless-data),-Adding-or-Formating-them">Modifying values by Removing (Additional meaningless data), Adding or Formating them </a></li>
+<li class="toc-entry toc-h3"><a href="#Data-Type-Convertion">Data Type Convertion </a></li>
+<li class="toc-entry toc-h3"><a href="#Dealing-with-Missing-Values">Dealing with Missing Values </a></li>
+<li class="toc-entry toc-h3"><a href="#Removing-Duplicated-Values">Removing Duplicated Values </a></li>
+<li class="toc-entry toc-h3"><a href="#Dealing-with-Inconsistencies-Data">Dealing with Inconsistencies Data </a></li>
+<li class="toc-entry toc-h3"><a href="#Setting-&-Modifying-the-Index-Column">Setting &amp; Modifying the Index Column </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Exporting-the-Clean-Dataset-💾">Exporting the Clean Dataset 💾 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-01-10-data-preprocessing-with-pandas-numpy.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="TL;DR-👀">
+<a class="anchor" href="#TL;DR-%F0%9F%91%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>TL;DR 👀<a class="anchor-link" href="#TL;DR-%F0%9F%91%80"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In a previous project, <a href="https://github.com/mrenrique/EDA-to-Youtube-Channel-Videos/blob/main/redbulloficialgallos_videos_details_dec-27-2020.csv">I made a Dataset by Scraping the videos details of a Youtube Channel using Selenium and Python</a>. This time I'll be showing how to perform many tasks in order to process all the gathered information. The output of this project is a <a href="https://github.com/mrenrique/EDA-to-Youtube-Channel-Videos/blob/main/clean_data.csv">Clean and ready-to-analyse Dataset</a> containing information of all International Matches of Freestyle organized by Red Bull from 2015 to 2020 (filtered by <code>internacional</code> and <code>vs</code> keywords). Also, here I leave you the <a href="https://github.com/mrenrique/portfolio/blob/master/_notebooks/redbulloficialgallos_videos_details_dec-27-2020.csv">Output Dataset from the previous Web Scraping Project</a>, so you can compare them.</p>
+<p>But first, let's learn a bit about the International Competition. <strong>Red Bull Batalla de los Gallos</strong> is the Most Recognized <strong>Freestyle Competition in Spanish</strong> that brings together the <strong>16 winning Freestylers</strong> from the competitions organized by Red Bull in each country. After all matches only one of them is crowned as international champion. <a href="https://rap.fandom.com/es/wiki/Red_Bull_Batalla_de_los_Gallos">Click here to learn more</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Importing-Libraries-🧰">
+<a class="anchor" href="#Importing-Libraries-%F0%9F%A7%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing Libraries 🧰<a class="anchor-link" href="#Importing-Libraries-%F0%9F%A7%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importing libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># check Pandas' version</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'1.1.5'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Importing-Dataset-🗃️">
+<a class="anchor" href="#Importing-Dataset-%F0%9F%97%83%EF%B8%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>Importing Dataset 🗃️<a class="anchor-link" href="#Importing-Dataset-%F0%9F%97%83%EF%B8%8F"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># importing from url</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/mrenrique/EDA-to-Youtube-Channel-Videos/main/redbulloficialgallos_videos_details_dec-27-2020.csv'</span>
+
+<span class="c1"># reading dataset with pandas and asigning  to a variable</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_url</span><span class="p">)</span>
+
+<span class="c1"># show first three rows</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>upload_date</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACZINO vs EXODO LIRICAL - 3er y 4to Puesto | R...</td>
+      <td>577,503</td>
+      <td>Dec 12, 2020</td>
+      <td>6:16</td>
+      <td>14,040</td>
+      <td>270</td>
+      <td>https://www.youtube.com/watch?v=Fwda4AWZ6V4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EXODO LIRICAL vs RAPDER - Semifinal | Red Bull...</td>
+      <td>238,463</td>
+      <td>Dec 12, 2020</td>
+      <td>12:30</td>
+      <td>8,135</td>
+      <td>927</td>
+      <td>https://www.youtube.com/watch?v=wIcz1_7qx-4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACZINO vs SKONE - Semifinal | Red Bull Interna...</td>
+      <td>756,352</td>
+      <td>Dec 12, 2020</td>
+      <td>10:06</td>
+      <td>18,458</td>
+      <td>1,146</td>
+      <td>https://www.youtube.com/watch?v=yv8yFhRsWVc</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Learning-the-Dataset's-Properties-💡">
+<a class="anchor" href="#Learning-the-Dataset's-Properties-%F0%9F%92%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning the Dataset's Properties 💡<a class="anchor-link" href="#Learning-the-Dataset's-Properties-%F0%9F%92%A1"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's take a look at the datafame's properties for a better understanding to know what needs to be done. To do so, we can use the <code>info()</code> method which gives us the number of columns, <strong>columns names</strong> and their <strong>data types</strong> all together.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 95 entries, 0 to 94
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   title        95 non-null     object
+ 1   views        95 non-null     object
+ 2   upload_date  95 non-null     object
+ 3   length       95 non-null     object
+ 4   likes        95 non-null     object
+ 5   dislikes     95 non-null     object
+ 6   url          95 non-null     object
+dtypes: object(7)
+memory usage: 5.3+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we learn about the dataset in a <strong>general way</strong>, let's also learn in a <strong>detailed way</strong> by showing a random sample of the dataset to give us an idea of what <strong>kind of values</strong> we are dealing with. Let's start by showing a random sample of the dataset.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>upload_date</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>TRUENO vs TITO MC - Octavos | Red Bull Interna...</td>
+      <td>2,082,852</td>
+      <td>Nov 30, 2019</td>
+      <td>5:51</td>
+      <td>43,267</td>
+      <td>3,996</td>
+      <td>https://www.youtube.com/watch?v=KJbIAlUdmLw</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>JONY BELTRAN vs CHUTY - Octavos | Red Bull Int...</td>
+      <td>13,138,438</td>
+      <td>Nov 12, 2016</td>
+      <td>7:09</td>
+      <td>182,494</td>
+      <td>11,726</td>
+      <td>https://www.youtube.com/watch?v=C2rXItCS8I0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>JAZE vs SNK - Octavos | Red Bull Internacional...</td>
+      <td>1,407,134</td>
+      <td>Nov 30, 2019</td>
+      <td>7:06</td>
+      <td>28,687</td>
+      <td>890</td>
+      <td>https://www.youtube.com/watch?v=gkfOnJI4Byc</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>ARKANO vs. YENKY ONE - 3 y 4 Puesto: Final Int...</td>
+      <td>2,093,488</td>
+      <td>Dec 3, 2017</td>
+      <td>4:47</td>
+      <td>30,378</td>
+      <td>1,347</td>
+      <td>https://www.youtube.com/watch?v=VOHgIr6dSZI</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>JONY BELTRAN vs. ARKANO - Cuartos: Final Inter...</td>
+      <td>3,352,057</td>
+      <td>Dec 3, 2017</td>
+      <td>4:41</td>
+      <td>37,794</td>
+      <td>1,164</td>
+      <td>https://www.youtube.com/watch?v=wWtcdK7bd4Y</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Data-Cleaning-🧼-and-Transformation-🔪">
+<a class="anchor" href="#Data-Cleaning-%F0%9F%A7%BC-and-Transformation-%F0%9F%94%AA" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Cleaning 🧼 and Transformation 🔪<a class="anchor-link" href="#Data-Cleaning-%F0%9F%A7%BC-and-Transformation-%F0%9F%94%AA"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are many tasks involved in <strong>Data Preprocessing</strong> which in turn are grouped into 4 main processes (<strong>Data Integration, Data Cleaning, Data Transformation and Data Reduction</strong>) but depending on the <strong>data</strong> and the <strong>scope of this project</strong> (Exploratory Data Analysis) we'll just need to perform some of them. let's start assuring the Data Quality for further Analysis.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Renaming-Columns-Names">
+<a class="anchor" href="#Renaming-Columns-Names" aria-hidden="true"><span class="octicon octicon-link"></span></a>Renaming Columns Names<a class="anchor-link" href="#Renaming-Columns-Names"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's first show all Columns Names to check if they required changes.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index(['title', 'views', 'upload_date', 'length', 'likes', 'dislikes', 'url'], dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we see, almost all Columns Names are ok except for <code>upload_date</code>. Let's change it for <code>year</code> Since we only need the year of the date.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'upload_date'</span><span class="p">:</span> <span class="s1">'year'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Verify changes</span>
+<span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index(['title', 'views', 'year', 'length', 'likes', 'dislikes', 'url'], dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>title       object
+views       object
+year        object
+length      object
+likes       object
+dislikes    object
+url         object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Deleting-Columns-not-needed-(First-Attempt)">
+<a class="anchor" href="#Deleting-Columns-not-needed-(First-Attempt)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deleting Columns not needed (<strong>First Attempt</strong>)<a class="anchor-link" href="#Deleting-Columns-not-needed-(First-Attempt)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's useful to remove some Columns that doesn't contributed to the Analysis Goal. In this case, <code>url</code> Column is not necesary.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'url'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index(['title', 'views', 'year', 'length', 'likes', 'dislikes'], dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Modifying-values-by-Removing-(Additional-meaningless-data),-Adding-or-Formating-them">
+<a class="anchor" href="#Modifying-values-by-Removing-(Additional-meaningless-data),-Adding-or-Formating-them" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modifying values by Removing (Additional meaningless data), Adding or Formating them<a class="anchor-link" href="#Modifying-values-by-Removing-(Additional-meaningless-data),-Adding-or-Formating-them"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now in order to Set the proper Data Type to each Column we need to make sure that all Columns Values are <strong>clean</strong>. Let's see a few rows to know what kind of values the dataset has.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACZINO vs EXODO LIRICAL - 3er y 4to Puesto | R...</td>
+      <td>577,503</td>
+      <td>Dec 12, 2020</td>
+      <td>6:16</td>
+      <td>14,040</td>
+      <td>270</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EXODO LIRICAL vs RAPDER - Semifinal | Red Bull...</td>
+      <td>238,463</td>
+      <td>Dec 12, 2020</td>
+      <td>12:30</td>
+      <td>8,135</td>
+      <td>927</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACZINO vs SKONE - Semifinal | Red Bull Interna...</td>
+      <td>756,352</td>
+      <td>Dec 12, 2020</td>
+      <td>10:06</td>
+      <td>18,458</td>
+      <td>1,146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RAPDER vs YARTZI - Cuartos | Red Bull Internac...</td>
+      <td>47,082</td>
+      <td>Dec 12, 2020</td>
+      <td>6:46</td>
+      <td>1,822</td>
+      <td>206</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>EXODO LIRICAL vs BNET - Cuartos | Red Bull Int...</td>
+      <td>685,109</td>
+      <td>Dec 12, 2020</td>
+      <td>6:40</td>
+      <td>23,202</td>
+      <td>1,842</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see, there are some Undesired characters among the values of some Columns. So it's necesary to <strong>remove Unnecessary Characteres before doing any conversion task</strong>. Let's start cleaning the <code>title</code> Column to keep only the Names of Freestylers</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
+    <strong>Important: </strong>Be careful, sometimes there are some characteres that seems similar like these ones - and –  but they are completely different and it can take you a while figure out why is not spliting as espected. I also had to add a conditional because the name of a participal has the - in it and it was spliting up incorrectly.
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Split by multiple different delimiters</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">'[-–|:]'</span>
+
+<span class="c1"># data['title'] = [re.split(pattern, i)[0].strip() if 'VALLES-T' not in i else i for i in data['title']]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="s1">'VALLES-T'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">i</span> <span class="k">else</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' - '</span><span class="p">,</span> <span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]]</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]]</span>
+
+<span class="c1"># verify changes</span>
+<span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'VALLES'</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>BNET vs VALLES-T</td>
+      <td>1,350,908</td>
+      <td>Dec 12, 2020</td>
+      <td>9:08</td>
+      <td>49,448</td>
+      <td>3,012</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>BNET vs VALLES-T</td>
+      <td>16,680,349</td>
+      <td>Nov 30, 2019</td>
+      <td>17:12</td>
+      <td>282,481</td>
+      <td>32,957</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>VALLES-T vs CHANG</td>
+      <td>11,477,492</td>
+      <td>Nov 30, 2019</td>
+      <td>6:43</td>
+      <td>161,561</td>
+      <td>2,969</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>VALLES-T vs JOKKER</td>
+      <td>3,221,089</td>
+      <td>Nov 30, 2019</td>
+      <td>6:21</td>
+      <td>48,888</td>
+      <td>1,155</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>VALLES-T vs ACZINO</td>
+      <td>16,277,039</td>
+      <td>Nov 30, 2019</td>
+      <td>13:46</td>
+      <td>279,388</td>
+      <td>9,027</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets continue cleaning the Columns <code>views</code>, <code>likes</code> and <code>dislikes</code>, In this case, we'll remove the comma (,) from <code>views</code>, <code>likes</code> and <code>dislikes</code> Columns Values. Also, in the <strong>row 8</strong> (and some others rows) there is the word <code>Premiered</code> before the date string. It needs to be removed.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List of characters to remove</span>
+<span class="n">chars_to_remove</span> <span class="o">=</span> <span class="p">[</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">','</span><span class="p">]</span>
+
+<span class="c1"># List of column names to clean</span>
+<span class="n">cols_to_clean</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'views'</span><span class="p">,</span> <span class="s1">'dislikes'</span><span class="p">,</span> <span class="s1">'likes'</span><span class="p">]</span>
+
+<span class="c1"># Loop for each column</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols_to_clean</span><span class="p">:</span>
+
+    <span class="c1"># Replace each character with an empty string</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">chars_to_remove</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span>
+
+<span class="c1"># verify changes</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACZINO vs EXODO LIRICAL</td>
+      <td>577503</td>
+      <td>Dec 12, 2020</td>
+      <td>6:16</td>
+      <td>14040</td>
+      <td>270</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EXODO LIRICAL vs RAPDER</td>
+      <td>238463</td>
+      <td>Dec 12, 2020</td>
+      <td>12:30</td>
+      <td>8135</td>
+      <td>927</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACZINO vs SKONE</td>
+      <td>756352</td>
+      <td>Dec 12, 2020</td>
+      <td>10:06</td>
+      <td>18458</td>
+      <td>1146</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we said earlier, we only need the last part of the string for each <code>upload_date</code> Column Value.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="n">i</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]]</span>
+
+<span class="c1"># verify changes</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    2020
+1    2020
+2    2020
+3    2020
+4    2020
+Name: year, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-Type-Convertion">
+<a class="anchor" href="#Data-Type-Convertion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Type Convertion<a class="anchor-link" href="#Data-Type-Convertion"> </a>
+</h3>
+<p>(less memory usage)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's check what Data Types the Columns are</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>title       object
+views       object
+year        object
+length      object
+likes       object
+dislikes    object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since we already saw the dataset have String, Datetime and Number values, this is not so specific, we need to set the right Data Type to all Columns. Let's first try an Automatic Data Type Conversion Method toy see if this will do the trick.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">()</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>title       string
+views       string
+year        string
+length      string
+likes       string
+dislikes    string
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since we see the code above it's not quite effective, <strong>we'll need to convert them manually</strong>. Also, from the above code, we see that it's neccesary remove some characteres inside Columns Values, <strong>that's why the automatic method set all columns as a string.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'title'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># List of column names to convert to numberic data</span>
+<span class="n">cols_to_modify_dtype</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'views'</span><span class="p">,</span> <span class="s1">'dislikes'</span><span class="p">,</span> <span class="s1">'likes'</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols_to_modify_dtype</span><span class="p">:</span>
+    <span class="c1"># Convert col to numeric</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'length'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'length'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'%M:%S'</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">])</span><span class="o">.</span><span class="n">year</span>
+
+<span class="c1"># verify changes</span>
+<span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>title       object
+views        int64
+year         int64
+length      object
+likes        int64
+dislikes     int64
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets print once again a few rows of the dataset to see if changes were applied.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACZINO vs EXODO LIRICAL</td>
+      <td>577503</td>
+      <td>2020</td>
+      <td>00:06:16</td>
+      <td>14040</td>
+      <td>270</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EXODO LIRICAL vs RAPDER</td>
+      <td>238463</td>
+      <td>2020</td>
+      <td>00:12:30</td>
+      <td>8135</td>
+      <td>927</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACZINO vs SKONE</td>
+      <td>756352</td>
+      <td>2020</td>
+      <td>00:10:06</td>
+      <td>18458</td>
+      <td>1146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RAPDER vs YARTZI</td>
+      <td>47082</td>
+      <td>2020</td>
+      <td>00:06:46</td>
+      <td>1822</td>
+      <td>206</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>EXODO LIRICAL vs BNET</td>
+      <td>685109</td>
+      <td>2020</td>
+      <td>00:06:40</td>
+      <td>23202</td>
+      <td>1842</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dealing-with-Missing-Values">
+<a class="anchor" href="#Dealing-with-Missing-Values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with Missing Values<a class="anchor-link" href="#Dealing-with-Missing-Values"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First we verify if the dataset have Missing Values.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since there is not Missing Values, Let's move on to the next task.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Removing-Duplicated-Values">
+<a class="anchor" href="#Removing-Duplicated-Values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing Duplicated Values<a class="anchor-link" href="#Removing-Duplicated-Values"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to identify if there are Duplicated Values, we'll use <code>duplicated()</code> method.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">duplicateRowsDF</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
+<span class="k">if</span> <span class="n">duplicateRowsDF</span><span class="o">.</span><span class="n">empty</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'There arent Duplicated Values. Good to go!'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Duplicate Rows except first occurrence based on all columns are :'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">duplicateRowsDF</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>There arent Duplicated Values. Good to go!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dealing-with-Inconsistencies-Data">
+<a class="anchor" href="#Dealing-with-Inconsistencies-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with Inconsistencies Data<a class="anchor-link" href="#Dealing-with-Inconsistencies-Data"> </a>
+</h3>
+<p>(Business Rule | Domain Expertice required)
+Modifying | Removing Erroneus Values</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Because I'm myself a fan of such Freestyle Competitions, I know that normally there are up to 16 matches every year. Let's verify that.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2018    18
+2020    17
+2019    16
+2017    16
+2016    16
+2015    12
+Name: year, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see there are more than that in the year 2018 and 2020, Lets find out what's going on.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2018</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>33</th>
+      <td>SWITCH vs BNET</td>
+      <td>1637196</td>
+      <td>2018</td>
+      <td>00:07:19</td>
+      <td>33768</td>
+      <td>493</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>WOS vs RAPDER Octavos</td>
+      <td>1831544</td>
+      <td>2018</td>
+      <td>00:07:01</td>
+      <td>33093</td>
+      <td>5586</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>BNET vs ARKANO</td>
+      <td>3506340</td>
+      <td>2018</td>
+      <td>00:07:17</td>
+      <td>58063</td>
+      <td>1371</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>VALLES T vs PEPE GRILLO</td>
+      <td>10975462</td>
+      <td>2018</td>
+      <td>00:07:18</td>
+      <td>166863</td>
+      <td>2964</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>NEON vs LETRA</td>
+      <td>4750022</td>
+      <td>2018</td>
+      <td>00:07:36</td>
+      <td>77815</td>
+      <td>1101</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>WOS vs LETRA</td>
+      <td>3875917</td>
+      <td>2018</td>
+      <td>00:07:34</td>
+      <td>72927</td>
+      <td>5913</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>VALLES T vs BNET</td>
+      <td>3609190</td>
+      <td>2018</td>
+      <td>00:08:09</td>
+      <td>62295</td>
+      <td>4511</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>WOS vs ACZINO</td>
+      <td>39525308</td>
+      <td>2018</td>
+      <td>00:19:03</td>
+      <td>680254</td>
+      <td>73824</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>VALLES T vs KDT</td>
+      <td>1858540</td>
+      <td>2018</td>
+      <td>00:07:50</td>
+      <td>33888</td>
+      <td>877</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>ACZINO vs JAZE</td>
+      <td>4673494</td>
+      <td>2018</td>
+      <td>00:07:53</td>
+      <td>70535</td>
+      <td>5986</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>BNET vs ACZINO</td>
+      <td>6880359</td>
+      <td>2018</td>
+      <td>00:08:14</td>
+      <td>108931</td>
+      <td>8573</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>YERIKO vs PEPE GRILLO</td>
+      <td>263529</td>
+      <td>2018</td>
+      <td>00:07:14</td>
+      <td>5625</td>
+      <td>655</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>RVS vs INDICO</td>
+      <td>1488867</td>
+      <td>2018</td>
+      <td>00:10:48</td>
+      <td>31762</td>
+      <td>495</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>INDICO vs ACZINO</td>
+      <td>1578144</td>
+      <td>2018</td>
+      <td>00:07:28</td>
+      <td>21910</td>
+      <td>466</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>VALLES T vs WOS</td>
+      <td>6938112</td>
+      <td>2018</td>
+      <td>00:09:14</td>
+      <td>116773</td>
+      <td>25799</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>DOZER vs ARKANO</td>
+      <td>1231381</td>
+      <td>2018</td>
+      <td>00:08:07</td>
+      <td>27260</td>
+      <td>4257</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Perfil de Gallo</td>
+      <td>16675</td>
+      <td>2018</td>
+      <td>00:00:52</td>
+      <td>863</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>MARK GRIST vs GALLOS</td>
+      <td>33867</td>
+      <td>2018</td>
+      <td>00:03:13</td>
+      <td>1442</td>
+      <td>44</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rows 49 and 50 are not part of the International Competition' videos, so they need to be removed. Now, let's see the rows of 2020 year</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2020</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ACZINO vs EXODO LIRICAL</td>
+      <td>577503</td>
+      <td>2020</td>
+      <td>00:06:16</td>
+      <td>14040</td>
+      <td>270</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EXODO LIRICAL vs RAPDER</td>
+      <td>238463</td>
+      <td>2020</td>
+      <td>00:12:30</td>
+      <td>8135</td>
+      <td>927</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ACZINO vs SKONE</td>
+      <td>756352</td>
+      <td>2020</td>
+      <td>00:10:06</td>
+      <td>18458</td>
+      <td>1146</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RAPDER vs YARTZI</td>
+      <td>47082</td>
+      <td>2020</td>
+      <td>00:06:46</td>
+      <td>1822</td>
+      <td>206</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>EXODO LIRICAL vs BNET</td>
+      <td>685109</td>
+      <td>2020</td>
+      <td>00:06:40</td>
+      <td>23202</td>
+      <td>1842</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SKONE vs ACERTIJO</td>
+      <td>179664</td>
+      <td>2020</td>
+      <td>00:09:36</td>
+      <td>5341</td>
+      <td>4847</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ACZINO vs NAICEN</td>
+      <td>158269</td>
+      <td>2020</td>
+      <td>00:06:51</td>
+      <td>5507</td>
+      <td>1713</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SKONE vs RAPDER</td>
+      <td>1651540</td>
+      <td>2020</td>
+      <td>00:15:19</td>
+      <td>64965</td>
+      <td>3259</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ELEVN vs YARTZI</td>
+      <td>56480</td>
+      <td>2020</td>
+      <td>00:06:30</td>
+      <td>2041</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>RAPDER vs STICK</td>
+      <td>122237</td>
+      <td>2020</td>
+      <td>00:06:21</td>
+      <td>4389</td>
+      <td>2710</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>BNET vs VALLES-T</td>
+      <td>1350908</td>
+      <td>2020</td>
+      <td>00:09:08</td>
+      <td>49448</td>
+      <td>3012</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>EXODO LIRICAL vs MAC</td>
+      <td>105707</td>
+      <td>2020</td>
+      <td>00:06:13</td>
+      <td>5319</td>
+      <td>254</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ACERTIJO vs MINOS</td>
+      <td>57738</td>
+      <td>2020</td>
+      <td>00:06:24</td>
+      <td>2530</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>SKONE vs TATA</td>
+      <td>436674</td>
+      <td>2020</td>
+      <td>00:06:36</td>
+      <td>12055</td>
+      <td>17890</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>NAICEN vs SNK</td>
+      <td>66128</td>
+      <td>2020</td>
+      <td>00:06:44</td>
+      <td>3196</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ACZINO vs SHIELD MASTER</td>
+      <td>154369</td>
+      <td>2020</td>
+      <td>00:06:51</td>
+      <td>5439</td>
+      <td>471</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>BLON vs NEW ERA vs YOIKER</td>
+      <td>932161</td>
+      <td>2020</td>
+      <td>00:25:18</td>
+      <td>49375</td>
+      <td>859</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same, Even though the row 16 is a international Competition Video (info), this match was done to have a reserve competitor just in case any of the 16 couldn't make it. But it didn't occur. Now let's remove all rows are not part of the Oficial Matches' Videos.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span> <span class="mi">49</span> <span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Setting-&amp;-Modifying-the-Index-Column">
+<a class="anchor" href="#Setting-&amp;-Modifying-the-Index-Column" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting &amp; Modifying the Index Column<a class="anchor-link" href="#Setting-&amp;-Modifying-the-Index-Column"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bencause it was necessary to remove some rows (16,49 and 50), the index was changed. Let fix that. Also, I'll asign a name to the Index Column.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">48</span><span class="p">:</span><span class="mi">50</span><span class="p">,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>views</th>
+      <th>year</th>
+      <th>length</th>
+      <th>likes</th>
+      <th>dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>48</th>
+      <td>G vs EL TANQUE</td>
+      <td>253069</td>
+      <td>2017</td>
+      <td>00:05:08</td>
+      <td>3640</td>
+      <td>424</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>ARKANO vs YENKY ONE</td>
+      <td>2093488</td>
+      <td>2017</td>
+      <td>00:04:47</td>
+      <td>30378</td>
+      <td>1347</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>WOS vs ACZINO</td>
+      <td>23008624</td>
+      <td>2017</td>
+      <td>00:07:51</td>
+      <td>261785</td>
+      <td>13990</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exporting-the-Clean-Dataset-💾">
+<a class="anchor" href="#Exporting-the-Clean-Dataset-%F0%9F%92%BE" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exporting the Clean Dataset 💾<a class="anchor-link" href="#Exporting-the-Clean-Dataset-%F0%9F%92%BE"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we're assure the dataset is clean and contain only the right values. Let's export it to move on to Exporing and Analizing the dataset.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'clean_data.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or if you prefer, you can download it to your Computer.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'clean_data.csv'</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'clean_data.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+
+<div id="dbc2de14-ccb7-4277-b88b-2fde91ee5927"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#dbc2de14-ccb7-4277-b88b-2fde91ee5927');
+
+    async function download(id, filename, size) {
+      if (!google.colab.kernel.accessAllowed) {
+        return;
+      }
+      const div = document.createElement('div');
+      const label = document.createElement('label');
+      label.textContent = `Downloading "${filename}": `;
+      div.appendChild(label);
+      const progress = document.createElement('progress');
+      progress.max = size;
+      div.appendChild(progress);
+      document.body.appendChild(div);
+
+      const buffers = [];
+      let downloaded = 0;
+
+      const channel = await google.colab.kernel.comms.open(id);
+      // Send a message to notify the kernel that we're ready.
+      channel.send({})
+
+      for await (const message of channel.messages) {
+        // Send a message to notify the kernel that we're ready.
+        channel.send({})
+        if (message.buffers) {
+          for (const buffer of message.buffers) {
+            buffers.push(buffer);
+            downloaded += buffer.byteLength;
+            progress.value = downloaded;
+          }
+        }
+      }
+      const blob = new Blob(buffers, {type: 'application/binary'});
+      const a = document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = filename;
+      div.appendChild(a);
+      a.click();
+      div.remove();
+    }
+  
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+<div id="7291d2f7-103b-4c54-81e5-e17ed9d4d272"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#7291d2f7-103b-4c54-81e5-e17ed9d4d272');
+download("download_5804b7e0-9e88-4b94-b777-0cae1a3a0f9a", "clean_data.csv", 5178)
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>You're Awesome</strong>, you just reached the end of this post. If you have any questions just <strong>drop me a message</strong>. Also, any <strong>suggestion</strong> or <strong>kudos</strong> would be quite appreciated. <strong>Did you find it useful?</strong> <a href="https://mrenrique.github.io/portfolio/">Check out my other posts here</a>, I'm sure you'll find something interesting 💡. <strong>Share this post</strong> with your friends/colleagues on (Facebook, Linkedint or Twitter) or if <strong>you are in a good mood</strong>, <a href="https://www.patreon.com/mrenrique">buy me a cup of coffee</a> ☕. Nos vemos 🏃💨</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="mrenrique/portfolio"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/portfolio/data%20preprocessing/python/data%20science/pandas/numpy/2021/01/10/data-preprocessing-with-pandas-numpy.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/portfolio/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/portfolio/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/portfolio/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
